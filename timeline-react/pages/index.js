@@ -1,19 +1,16 @@
-// pages/index.js
 import { useEffect } from 'react';
 import * as d3 from 'd3';
 
-const data = [
+
+const default_data1 = [
   { civilization: "Ancient Egypt", start: -3100, end: -30, region: "Africa", color: "#1f77b4" },
   { civilization: "Roman Empire", start: -27, end: 476, region: "Europe", color: "#ff7f0e" },
   // Add more data as needed
 ];
+const default_data0 = [];
 
-const Timeline = () => {
+const Timeline = ({ data = default_data1, width = 960, height = 1000, margin = { top: 30, right: 30, bottom: 30, left: 30 } }) => {
   useEffect(() => {
-    const margin = { top: 30, right: 30, bottom: 30, left: 30 };
-    const width = 960;
-    const height = 1000;
-
     const svg = d3.select("#timeline")
       .attr("width", width)
       .attr("height", height);
@@ -50,7 +47,9 @@ const Timeline = () => {
       .attr("x", d => x(d.start))
       .attr("width", d => x(d.end) - x(d.start))
       .attr("height", y.bandwidth())
-      .attr("fill", d => color(d.region));
+      .attr("fill", d => color(d.region))
+      .append("title")
+      .text(d => d.civilization);
 
     bars.append("text")
       .text(d => d.civilization)
@@ -59,13 +58,17 @@ const Timeline = () => {
       .attr("dy", ".35em")
       .attr("text-anchor", "middle")
       .attr("fill", "black");
-  }, []);
+
+  },
+  // useEffect
+  [data, width, height, margin]);
 
   return (
-    <div>
+    // react fragment: <> to avoid unnecessary DOMs
+    <>
       <h1>Log-scale World History Timeline</h1>
       <svg id="timeline"></svg>
-    </div>
+    </>
   );
 };
 
