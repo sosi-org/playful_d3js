@@ -1,0 +1,15 @@
+{
+   "name": "d3-timeline",
+   "version": "0.0.1",
+   "description": "d3 practice: timeline inspired by tezzutezzu",
+   "author": "sosi",
+   "keywords": [],
+   "license": "ISC",
+   "main": "index.js",
+   "scripts": {
+      "start": "http-server"
+   },
+   "devDependencies": {
+      "http-server": "^14.1.1"
+   }
+}
