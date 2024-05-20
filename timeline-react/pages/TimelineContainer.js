@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import * as d3 from 'd3';
-import Timeline from './index'; // assuming the Timeline component is in index.js
+import Timeline from './Timeline';
 
 const TimelineContainer = () => {
   const [data, setData] = useState([]);
