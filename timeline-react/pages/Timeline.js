@@ -9,8 +9,8 @@ Design credits to: https://observablehq.com/@tezzutezzu/world-history-timeline?c
 // Example data to document the data structure
 const default_data0 = [];
 const default_data1 = [
-  { civilization: "Ancient Egypt", start: -3100, end: -30, region: "Africa", color: "#1f77b4" },
-  { civilization: "Roman Empire", start: -27, end: 476, region: "Europe", color: "#ff7f0e" },
+  { civilization: "Aegean civilization", start: -2000, end: -1200, region: "Europe (and colonial offshoots)", timeline: "ANCIENT WORLD" },
+  { civilization: "Roman Republic", start: -550, end: -330, region: "Middle East", timeline: "ANCIENT WORLD" },
   // Add more data as needed
 ];
 /* .csv format:
@@ -18,6 +18,8 @@ civilization,start,end,startLabel,endLabel,region,timeline
 Aegean civilization,-2000,-1200,,,Europe (and colonial offshoots),ANCIENT WORLD
 Greek age,-1200,0,,,Europe (and colonial offshoots),ANCIENT WORLD
 "Age of pre-colonial civilization (Christian, Islamic, and traditional kingdoms)",650,1880,,,Sub-Saharan Africa,MEDIEVAL WORLD
+Egyptian civilization,-3000,-550,,,Middle East,ANCIENT WORLD
+Roman Republic,-500,0,,,Europe (and colonial offshoots),ANCIENT WORLD
 First Persian Empire,-550,-330,,,Middle East,ANCIENT WORLD
 ...
 */
