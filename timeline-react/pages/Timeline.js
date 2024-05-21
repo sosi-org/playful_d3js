@@ -40,7 +40,8 @@ const Timeline = ({ data = default_data0, width = 960, height = 1000, margin = {
     const y = d3.scaleBand()
       .domain(d3.range(data.length))
       // .range([margin.top, height - margin.bottom])
-      .range([0, width - margin.left - margin.right])
+      // .range([0, width - margin.left - margin.right])
+      .range([0, height - margin.bottom - margin.top])
       .padding(0.2);
 
     var createTooltip = function(el) {
