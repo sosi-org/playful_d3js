@@ -2,8 +2,11 @@ import { useEffect } from 'react';
 import * as d3 from 'd3';
 
 /*
+by Sohail Sidat.
 My reimplementation of the following design:
-Design credits to: https://observablehq.com/@tezzutezzu/world-history-timeline?collection=@observablehq/visualization
+Design credits to:
+   https://observablehq.com/@tezzutezzu/world-history-timeline?collection=@observablehq/visualization
+   ( by Danilo Di Cuia )
 */
 
 // Example data to document the data structure
@@ -59,7 +62,8 @@ const Timeline = ({ data = default_data0, width = 960, height = 1000, margin = {
       .range([0, height - margin.bottom - margin.top])
       .padding(0.2);
 
-    var createTooltip = function(el) {
+    // todo: unused. Use with getTooltipContent()
+    const createTooltip = function(el) {
         el
           .style("position", "absolute")
           .style("pointer-events", "none")
@@ -102,6 +106,16 @@ const Timeline = ({ data = default_data0, width = 960, height = 1000, margin = {
       .attr("transform", `translate(0,${margin.top})`)
       // .call(d3.axisTop(x).tickFormat(formatDate));
       .call(axisTop);
+
+    // todo: use
+    const getTooltipContent = function(d) {
+      return `<b>${d.civilization}</b>
+      <br/>
+      <b style="color:${d.color.darker()}">${d.region}</b>
+      <br/>
+      ${formatDate(d.start)} - ${formatDate(d.end)}
+      `
+  }
 
     const bars = svg.selectAll(".bar")
       .data(data)
