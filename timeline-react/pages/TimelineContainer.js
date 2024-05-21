@@ -6,12 +6,19 @@ const TimelineContainer = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    d3.csv("/civilizations-timeline.csv").then(parsedData => {
-      const formattedData = parsedData.map(d => ({
+    d3
+    .csv("/civilizations-timeline.csv")
+    .then(parsedData => {
+      // data=formattedData
+      const formattedData = parsedData
+      .map(d => ({
         ...d,
         start: +d.start,
         end: +d.end
-      }));
+      }))
+      .sort((a,b)=>  a.start-b.start);
+
+      // setData(data);
       setData(formattedData);
     });
   }, []);
