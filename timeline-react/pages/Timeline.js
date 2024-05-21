@@ -62,6 +62,10 @@ const Timeline = ({ data = default_data0, width = 960, height = 1000, margin = {
     // var infer_color = d3.scaleOrdinal(d3.schemeSet2).domain(regions);
     const infer_color = d3.scaleOrdinal(d3.schemeSet2);
     // what is this? ^
+    const color22 = d3.scaleOrdinal(d3.schemeSet2).domain(regions);
+
+    // todo: color22 is not used.
+
 
     const formatDate = d => d < 0 ? `${-d}BC` : `${d}AD`;
 
