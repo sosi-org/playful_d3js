@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eux
+
 export PS4="🗣️  "
 # SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
 # timeline-react/clean-up.bash
@@ -8,6 +8,15 @@ echo "INCLUDES=$INCLUDES"
 source $INCLUDES/gitrepo_root.bash
 source $INCLUDES/export_env.bash
 source $INCLUDES/export_func.bash
+
+# Node Version Manager (assume it is installed)
+export NVM_DIR="$HOME/.nvm"
+source "$NVM_DIR/nvm.sh"
+echo -n "I 💔 nvm. "
+nvm --version
+nvm use lts/iron
+
+set -eux
 
 ### MAIN ###
 gitrepo_root
