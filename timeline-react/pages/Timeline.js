@@ -62,20 +62,6 @@ const Timeline = ({ data = default_data0, width = 960, height = 1000, margin = {
       .range([0, height - margin.bottom - margin.top])
       .padding(0.2);
 
-    // todo: unused. Use with getTooltipContent()
-    const createTooltip = function(el) {
-        el
-          .style("position", "absolute")
-          .style("pointer-events", "none")
-          .style("top", 0)
-          .style("opacity", 0)
-          .style("background", "white")
-          .style("border-radius", "5px")
-          .style("box-shadow", "0 0 10px rgba(0,0,0,.25)")
-          .style("padding", "10px")
-          .style("line-height", "1.3")
-          .style("font", "11px sans-serif")
-      };
 
     // const color = d3.scaleOrdinal(d3.schemeSet2);
     // var infer_color = d3.scaleOrdinal(d3.schemeSet2).domain(regions);
@@ -107,6 +93,21 @@ const Timeline = ({ data = default_data0, width = 960, height = 1000, margin = {
       // .call(d3.axisTop(x).tickFormat(formatDate));
       .call(axisTop);
 
+    // todo: unused. Use with getTooltipContent()
+    const createTooltip = function(el) {
+      el
+        .style("position", "absolute")
+        .style("pointer-events", "none")
+        .style("top", 0)
+        .style("opacity", 0)
+        .style("background", "white")
+        .style("border-radius", "5px")
+        .style("box-shadow", "0 0 10px rgba(0,0,0,.25)")
+        .style("padding", "10px")
+        .style("line-height", "1.3")
+        .style("font", "11px sans-serif")
+    };
+
     // todo: use
     const getTooltipContent = function(d) {
       return `<b>${d.civilization}</b>
@@ -114,8 +115,8 @@ const Timeline = ({ data = default_data0, width = 960, height = 1000, margin = {
       <b style="color:${d.color.darker()}">${d.region}</b>
       <br/>
       ${formatDate(d.start)} - ${formatDate(d.end)}
-      `
-  }
+      `;
+    }
 
     const bars = svg.selectAll(".bar")
       .data(data)
